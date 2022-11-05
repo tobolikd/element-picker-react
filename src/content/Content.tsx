@@ -6,7 +6,7 @@ const Content = () => {
 	const get_element = () => {
 		// get element under cursor
 		var cont = document.getElementById('smartlook-element-info');
-		if (cont) readingElement(cont);
+		if (cont) readingElement(cont, document, window);
 	};
 	
 	return (
