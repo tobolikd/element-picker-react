@@ -4,9 +4,7 @@ const Content = () => {
 	return (
 		<div id={'smartlook-element-picker'} className={styles.content}>
 			<h3>Current element:</h3>
-			<p id={'smartlook-element-info'}>
-				No element hovered yet
-			</p>
+			<p id={'smartlook-element-info'}>No element hovered yet</p>
 		</div>
 	)
 }
