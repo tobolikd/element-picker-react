@@ -1,0 +1,8 @@
+# External packages
+node_modules
+
+# Jetbrains IDE settings
+.idea
+
+# Contains build output
+dist

@@ -1,0 +1,17 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.popup {
+	padding: 16px;
+	font-family: 'Roboto', serif;
+	font-size: 14px;
+	min-width: 400px;
+	background: linear-gradient(115.34deg, #023189 0%, #0077af 100%);
+	color: white;
+}
+
+.popupLink {
+	color: white;
+}
