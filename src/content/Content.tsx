@@ -1,6 +1,8 @@
 import styles from './Content.module.css'
 import {readingElement} from "../picker/picker"
 
+import { useEffect, useRef } from 'react'
+import { isElement } from './utils'
 
 const Content = () => {
 	const get_element = () => {
@@ -9,9 +11,33 @@ const Content = () => {
 		if (cont) readingElement(cont, document, window);
 	};
 	
+	const infoRef = useRef<HTMLParagraphElement | null>(null)
+	useEffect(() => {
+		const handleMouseMove = (mouseMoveEvent: MouseEvent) => {
+			const target = mouseMoveEvent.target
+
+			if (isElement(target)) {
+				const elementAttributes = Array.from(target.attributes)
+					.map((attribute) => `${attribute.name}=${attribute.value}`)
+					.join(' ')
+				const verySimpleElementInfo = `<${target.tagName} ${elementAttributes}/>`
+
+				if (infoRef && infoRef.current) {
+					// display current element info in modal.
+					infoRef.current.innerText = `${verySimpleElementInfo}`
+				}
+			}
+		}
+		window.addEventListener('mousemove', handleMouseMove)
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove)
+		}
+	}, [])
+
 	return (
 		<div id={'smartlook-element-picker'} className={styles.content}>
 			<h3>Current element:</h3>
+			<p ref={infoRef}></p>
 			<p id={'smartlook-element-info'}>No element hovered yet</p>
 			<button id={'smartlook-pick-element'} onClick={get_element}>Pick element</button>
 		</div>
