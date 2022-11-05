@@ -13,7 +13,7 @@ const Content = () => {
 		<div id={'smartlook-element-picker'} className={styles.content}>
 			<h3>Current element:</h3>
 			<p id={'smartlook-element-info'}>No element hovered yet</p>
-			<button onClick={get_element}>Pick element</button>
+			<button id={'smartlook-pick-element'} onClick={get_element}>Pick element</button>
 		</div>
 	)
 }
