@@ -1,6 +1,3 @@
-import React from "react";
-
-
 
 // main picker code
 export function readingElement(elem: HTMLElement, doc: Document, win: Window) {
